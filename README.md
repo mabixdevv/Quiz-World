@@ -14,3 +14,7 @@ Quiz game built with HTML, CSS and JavaScript.
 - HTML
 - CSS
 - JavaScript
+  
+## Author
+
+Created by Mabix.
