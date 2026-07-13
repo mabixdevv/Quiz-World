@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Baloo 2', sans-serif;
+}
+
+
+.container{
+    margin: auto;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+}
+
+.levels{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.level{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    background-color: aliceblue;
+    border-radius: 10px;
+
+    max-width: 200px;
+    padding: 10px;
+}
+
+.level img{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    max-height: 266px;
+}
+
+.level .starsImg{
+    width: 50%;
+    transition: transform 0.3s ease-out;
+}
+
+.level .starsImg:hover{
+    transform: scale(1.1);
+}
+
+
+.level button{
+    display: block;
+    margin: auto;
+    padding: 10px;
+
+    cursor: pointer;
+
+    font-weight: bolder;
+    text-transform: uppercase;   
+    font-family: inherit;
+
+    border: none;
+    border-radius: 20px;
+    background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA 51%, #1FA2FF 100%);
+    background-size: 200%;
+
+    min-width: 100px;
+
+    transition: 0.4s ease-out;
+}
+.level button:hover{
+    transform: scale(1.1);
+}
+
+#extraHeight{
+    height: 266px;
+}
