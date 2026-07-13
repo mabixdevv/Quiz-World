@@ -82,7 +82,7 @@ function ProfilePictureUpdate(){
 
 function OnClick(){
     console.log('here')
-    window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizProject/src/html/choosequiz.html'
+    window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/choosequiz.html'
 }
 
 

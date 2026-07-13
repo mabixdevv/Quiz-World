@@ -291,8 +291,14 @@ function FinishGame(Bt){
     let XpSpan = document.querySelector('.subinfo span')
     XpSpan.innerText = totalxp + 'xp'
     Bt.innerText = 'Lobby'
-}
 
+    if (difficulty == 'easy'){
+        localStorage.setItem('Money', 10)
+    }else if(difficulty == 'meduim'){
+        localStorage.setItem('Money', 30)
+    }else if(difficulty == 'hard'){
+        localStorage.setItem('Money', 50)}
+}
 
 function ButtonClick(Button){
     console.log('here' + Button.innerText)
@@ -309,7 +315,7 @@ function ButtonClick(Button){
         // UpdateQuestionlog() 
     }else if(Button.innerText == 'LOBBY'){
         localStorage.setItem('GameXp', totalxp)
-        window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizProject/src/html/main.html'
+        window.location.href = '/Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/main.html'
     }
 }
 
