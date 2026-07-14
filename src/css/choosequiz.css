@@ -74,6 +74,16 @@ body{
     transform: scale(1.1);
 }
 
+.wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.wrapper img{
+    width: 30%;
+}
+
 #extraHeight{
     height: 266px;
 }
