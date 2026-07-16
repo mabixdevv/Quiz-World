@@ -38,20 +38,28 @@ body{
 }
 
 #moneyIcon{
-    position: absolute;
     right: 50px;
     top: 10px;
 
-    width: 5%;
+    width: 25%;
 }
 
 #moneyTxt{
-    position: absolute;
     right: 35px;
     top: 18px;
 
-    font-size: 24px;
+    font-size: 28px;
     font-family: inherit;
+}
+
+.wrapper3{
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
 }
 
 .profile{
