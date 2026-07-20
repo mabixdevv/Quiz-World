@@ -161,3 +161,32 @@ body{
     transform: scale(1.1);
     background-position: left;
 }
+
+@media screen and (max-width:425px) {
+    .wrapper3{
+        top: 180px;
+        right: 150px;
+    }
+
+    .wrapper3 img{
+        width: 15%;
+    }
+
+    .xpbar{
+        width: 100px;
+    }
+
+    .profileInfo label{
+        width: 20%;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .profileInfo label{
+        width: 35%;
+    }
+
+    .wrapper3{
+        right: 70px;
+    }
+}

@@ -108,3 +108,18 @@ body{
 
     margin: 0px 10px 10px 10px;
 }
+
+@media screen and (max-width:425px) {
+    .bg{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:320px) {
+    .option{
+        max-width: 150px;
+    }
+    .option span{
+        font-size: 25px;
+    }
+}

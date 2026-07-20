@@ -87,3 +87,28 @@ body{
 #extraHeight{
     height: 266px;
 }
+
+@media screen and (max-width:425px) {
+    .level h2{
+        font-size: 20px;
+    }
+
+    .level h3{
+        font-size: 15px;
+    }
+
+    .level .starsImg{
+        width: 70%;
+    }
+
+    .level img{
+        max-height: 135px;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .levels{
+        overflow-y: scroll;
+        max-width: 300px;
+    }
+}
