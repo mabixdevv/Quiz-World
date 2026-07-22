@@ -1,4 +1,5 @@
 let bt = document.querySelector('.content button')
+let Achvbt = document.getElementById('achievement')
 
 let bar = document.querySelector('.xpbar')
 let FillBar = document.querySelector('.bar')
@@ -20,6 +21,50 @@ let moneyTxt = document.getElementById('moneyTxt')
 
 let reader = new FileReader();
 
+let badgesDiv = document.querySelector('.badges')
+let badge = localStorage.getItem('Badge')
+let badgeList = [localStorage.getItem('Badges')]  || [null, null, null] 
+
+// [localStorage.getItem('Badges')] ||
+// localStorage.setItem('Badges', [null, null, null])
+
+badgeList.forEach(el => {
+    for (let img of badgesDiv.children){
+        if (el != null){
+            img.src = el
+            // console.log(img)
+        }    
+    }
+})
+
+if (badge != 'null'){
+    // console.log('in here')
+    console.log(badgeList)
+    badgeList.forEach(el => {  
+        if (el == null && !badgeList.includes(badge)){
+            // console.log('here')
+            let index = badgeList.indexOf(el)
+            badgeList[index] = badge
+            for (let img of badgesDiv.children){
+                // console.log(img)
+                if(img.getAttribute('src') == '../images/NoPfp.jpg'){
+                    // console.log('here')
+                    img.src = badge 
+                    console.log(img)
+                    break
+                }else{
+                    console.log(img)
+                    console.log('all slots are full')
+                }
+            }
+            console.log(badgeList)
+            localStorage.setItem('Badges', badgeList)
+            // console.log()
+            // console.log(badgeList)
+        }
+    })
+}
+
 reader.onload = () => {
     console.log(reader.result);
     localStorage.setItem('pfp', reader.result)
@@ -36,7 +81,8 @@ if (localStorage.getItem('pfp') && labelImg){
 }
 
 
-bt.addEventListener('click', () => OnClick())
+bt.addEventListener('click', () => OnClick('selectquiz'))
+Achvbt.addEventListener('click', () => OnClick('achievements'))
 input.addEventListener('change', () => ProfilePictureUpdate())
 NameEdit.addEventListener('click', () => NameChange())
 
@@ -80,9 +126,19 @@ function ProfilePictureUpdate(){
 }
 
 
-function OnClick(){
+function OnClick(location){
     console.log('here')
-    window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/choosequiz.html'
+    if (location){
+        if (location == 'selectquiz'){
+            window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/choosequiz.html'
+        }else if(location == 'achievements'){
+            window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/achievements.html'
+        }
+    }else{
+        console.log('no location!')
+    }
+
+
 }
 
 

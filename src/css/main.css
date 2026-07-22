@@ -33,6 +33,22 @@ body{
     margin-bottom: 20px;   
 }
 
+.sub_info{
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.badges{
+    display: flex;
+    gap: 3px;
+}
+
+.badges img{
+    width: 32px;
+    height: 32px;
+}
+
 .titles{
     grid-column: 2; 
 
