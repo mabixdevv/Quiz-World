@@ -16,7 +16,7 @@ const BtList = [
 ]
 
 function BackToMenu(){
-    window.location.href = '/Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/main.html'
+    window.location.href = '../html/main.html'
 }
 
 function OnClick(bt){

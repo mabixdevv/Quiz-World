@@ -315,7 +315,7 @@ function ButtonClick(Button){
         // UpdateQuestionlog() 
     }else if(Button.innerText == 'LOBBY'){
         localStorage.setItem('GameXp', totalxp)
-        window.location.href = '/Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/main.html'
+        window.location.href = '../html/main.html'
     }
 }
 

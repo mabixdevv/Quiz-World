@@ -10,7 +10,7 @@ function StartGame(difficulty){
     }else if(difficulty == 'hard'){
         localStorage.setItem('Difficulty', 'hard')
     }
-    window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/index.html'
+    window.location.href = '../html/index.html'
 }
 
 btEasy.addEventListener('click', () => StartGame('easy'))

@@ -130,9 +130,9 @@ function OnClick(location){
     console.log('here')
     if (location){
         if (location == 'selectquiz'){
-            window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/choosequiz.html'
+            window.location.href = '../html/choosequiz.html'
         }else if(location == 'achievements'){
-            window.location.href = 'file:///Users/miras/Documents/IT/JS%20Projects/QuizWorld/src/html/achievements.html'
+            window.location.href = '../html/achievements.html'
         }
     }else{
         console.log('no location!')
