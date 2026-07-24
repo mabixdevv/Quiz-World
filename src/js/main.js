@@ -23,16 +23,32 @@ let reader = new FileReader();
 
 let badgesDiv = document.querySelector('.badges')
 let badge = localStorage.getItem('Badge')
-let badgeList = [localStorage.getItem('Badges')]  || [null, null, null] 
+let badgeList = JSON.parse(localStorage.getItem('Badges')) || [null, null, null] 
+let Unequip = localStorage.getItem('Unequip') || null
+
 
 // [localStorage.getItem('Badges')] ||
 // localStorage.setItem('Badges', [null, null, null])
+// console.log(Unequip)
+console.log(badge)
+
+if (Unequip != null && Unequip != 'null'){
+    console.log('boom')
+    let index = badgeList.indexOf(Unequip)
+    badgeList[index] = null
+    localStorage.setItem('Badges', JSON.stringify(badgeList))
+    badge = null
+    localStorage.setItem('Badge', badge)
+    Unequip = null
+    localStorage.setItem('Unequip', Unequip)
+}
 
 badgeList.forEach(el => {
     for (let img of badgesDiv.children){
-        if (el != null){
+        if (el !== null && img.getAttribute('src') == '../images/NoPfp.jpg'){
             img.src = el
             // console.log(img)
+            break
         }    
     }
 })
@@ -42,13 +58,10 @@ if (badge != 'null'){
     console.log(badgeList)
     badgeList.forEach(el => {  
         if (el == null && !badgeList.includes(badge)){
-            // console.log('here')
             let index = badgeList.indexOf(el)
-            badgeList[index] = badge
+            badgeList[index] = badge  
             for (let img of badgesDiv.children){
-                // console.log(img)
                 if(img.getAttribute('src') == '../images/NoPfp.jpg'){
-                    // console.log('here')
                     img.src = badge 
                     console.log(img)
                     break
@@ -57,10 +70,8 @@ if (badge != 'null'){
                     console.log('all slots are full')
                 }
             }
+            localStorage.setItem('Badges', JSON.stringify(badgeList))
             console.log(badgeList)
-            localStorage.setItem('Badges', badgeList)
-            // console.log()
-            // console.log(badgeList)
         }
     })
 }
