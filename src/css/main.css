@@ -6,6 +6,7 @@
 body{
     font-family: 'Baloo 2', sans-serif;
     min-height: 100vh;
+    background-image: linear-gradient(135deg, #e0f7fa, #80deea, #4dd0e1);
 }
 
 .container{
@@ -20,8 +21,11 @@ body{
 .content{
     position: relative;
     border-radius: 10px;
-    background-color: #87CEEB;
+    background-color: rgba(255, 255, 255, 0.55);
     color: #2F3542;
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 60px  rgba(0, 150, 180, 0.15), 0 8px 24px rgba(0, 0, 0, 0.06);
 
     padding: 10px;
 }
