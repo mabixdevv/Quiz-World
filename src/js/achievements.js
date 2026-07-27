@@ -1,4 +1,6 @@
 let backBt = document.querySelector('.content button')
+let imglist = []
+let imgUnEquipList = []
 
 const BtList = JSON.parse(localStorage.getItem('State')) || [
     {
@@ -47,12 +49,15 @@ function CheckEquip(){
 }
 
 function BackToMenu(){
+    localStorage.setItem('Badges', JSON.stringify(imglist))
     window.location.href = '../html/main.html'
 }
 
 function OnClick(bt){
     let object = BtList.find(button => button.name == bt.id)
     let img = object.img
+
+    console.log(imglist)
     console.log(bt)
     console.log(object)
     console.log(object.state)
@@ -60,11 +65,12 @@ function OnClick(bt){
 
     if(object.state == 'Unequip'){
         console.log('here')
-        localStorage.setItem('Unequip', img)
+        imgUnEquipList.push(img)
         object.state = 'Equip'
         bt.innerText = object.state
         console.log(object.state)
         console.log(bt.innerText)
+        localStorage.setItem('Unequip', JSON.stringify(imgUnEquipList))
         localStorage.setItem('State', JSON.stringify(BtList))
         return
     }
@@ -77,9 +83,9 @@ function OnClick(bt){
     }
 
     if (object.state == 'Equip'){
-        localStorage.setItem('Badge', img)
         object.state = 'Unequip'
         bt.innerText = object.state
+        imglist.push(img)
         localStorage.setItem('State', JSON.stringify(BtList))
     }
 }

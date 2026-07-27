@@ -22,30 +22,38 @@ let moneyTxt = document.getElementById('moneyTxt')
 let reader = new FileReader();
 
 let badgesDiv = document.querySelector('.badges')
-let badge = localStorage.getItem('Badge')
-let badgeList = JSON.parse(localStorage.getItem('Badges')) || [null, null, null] 
-let Unequip = localStorage.getItem('Unequip') || null
+let badges = JSON.parse(localStorage.getItem('Badges'))
+let badgeList = JSON.parse(localStorage.getItem('BadgesList')) || [null, null, null] 
+let Unequip = JSON.parse(localStorage.getItem('Unequip')) || null
 
 
 // [localStorage.getItem('Badges')] ||
 // localStorage.setItem('Badges', [null, null, null])
 // console.log(Unequip)
-console.log(badge)
+console.log(badges)
 
 if (Unequip != null && Unequip != 'null'){
-    console.log('boom')
-    let index = badgeList.indexOf(Unequip)
-    badgeList[index] = null
-    localStorage.setItem('Badges', JSON.stringify(badgeList))
-    badge = null
-    localStorage.setItem('Badge', badge)
-    Unequip = null
-    localStorage.setItem('Unequip', Unequip)
+    Unequip.forEach(el => {
+        console.log('boom')
+        console.log(badges)
+        let index = badgeList.indexOf(el)
+        badgeList[index] = null
+        // badges = null
+        // badges.forEach(elem =>{
+        //     if (elem == el){
+        //         elem = null
+        //     }
+        // })
+        Unequip = null
+        localStorage.setItem('BadgesList', JSON.stringify(badgeList))
+        // localStorage.setItem('Badges', JSON.stringify(badges))
+        localStorage.setItem('Unequip', Unequip)
+    })
 }
 
 badgeList.forEach(el => {
     for (let img of badgesDiv.children){
-        if (el !== null && img.getAttribute('src') == '../images/NoPfp.jpg'){
+        if (el !== null && img.getAttribute('src') == '../images/NoBadge.svg'){
             img.src = el
             // console.log(img)
             break
@@ -53,16 +61,17 @@ badgeList.forEach(el => {
     }
 })
 
-if (badge != 'null'){
+if (badges != 'null' && badges != null){
     // console.log('in here')
     console.log(badgeList)
-    badgeList.forEach(el => {  
-        if (el == null && !badgeList.includes(badge)){
+    badgeList.forEach(el => { 
+        badges.forEach(element => {
+        if (el == null && !badgeList.includes(element) && element != null){
             let index = badgeList.indexOf(el)
-            badgeList[index] = badge  
+            badgeList[index] = element
             for (let img of badgesDiv.children){
-                if(img.getAttribute('src') == '../images/NoPfp.jpg'){
-                    img.src = badge 
+                if(img.getAttribute('src') == '../images/NoBadge.svg'){
+                    img.src = element 
                     console.log(img)
                     break
                 }else{
@@ -70,10 +79,14 @@ if (badge != 'null'){
                     console.log('all slots are full')
                 }
             }
-            localStorage.setItem('Badges', JSON.stringify(badgeList))
+            localStorage.setItem('BadgesList', JSON.stringify(badgeList))
             console.log(badgeList)
         }
+        })
     })
+    badges = null
+    localStorage.setItem('Badges', JSON.stringify(badges))
+    console.log(badges)
 }
 
 reader.onload = () => {
