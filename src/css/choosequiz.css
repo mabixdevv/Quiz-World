@@ -5,6 +5,7 @@
 
 body{
     font-family: 'Baloo 2', sans-serif;
+    background-image: linear-gradient(135deg, #e0f7fa, #80deea, #4dd0e1);
 }
 
 
@@ -26,11 +27,47 @@ body{
     flex-direction: column;
     gap: 10px;
 
-    background-color: aliceblue;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 60px  rgba(0, 150, 180, 0.15), 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
 
     max-width: 200px;
     padding: 10px;
+
+    transition: transform 0.4s ease-in-out;
+}
+
+.level:hover{
+    transform: scale(1.02);
+}
+
+#Easy{
+    color: #43a047;
+}
+
+#Easy button{
+    background-image: linear-gradient(135deg, #81c784, #66bb6a);
+    box-shadow: 0 6px 20px rgba(102, 187, 106, 0.3);
+}
+
+#Medium{
+    color: 	#fb8c00;
+}
+
+#Medium button{
+    background-image: linear-gradient(135deg, #ffb74d, #ffa726);
+    box-shadow: 0 6px 20px rgba(255, 167, 38, 0.3);
+}
+
+#Hard{
+    color: #e53935;
+}
+
+#Hard button{
+    background-image: linear-gradient(135deg, #ef5350, #e53935);
+    box-shadow: 0 6px 20px rgba(239, 83, 80, 0.3);
 }
 
 .level img{

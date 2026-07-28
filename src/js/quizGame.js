@@ -268,7 +268,7 @@ function Retry(){
         el.append(span)
     })
     document.querySelectorAll('.option span').forEach(el => {
-    el.addEventListener("click", () => OnClick(el))
+        el.addEventListener("click", () => OnClick(el))
     })
     document.querySelectorAll('.option span').forEach(el => {
         for (let element of questionVar.answers){
@@ -322,7 +322,9 @@ function ButtonClick(Button){
 function Update(nextQuestion){
     console.log(nextQuestion)
 
+    //remove buttons here =>
     document.querySelectorAll('.option span').forEach(el =>{el.remove()})
+    document.querySelectorAll('.option').forEach(el =>{el.style.display = 'none'})
 
     let Bt = document.createElement('button')
     Bt.classList.add('Bt')
@@ -418,6 +420,7 @@ function Generate(again){
     console.log(questionVar)
 
     document.getElementById('Question').innerText = questionVar.question
+        document.querySelectorAll('.option').forEach(el =>{el.style.display = 'block'})
     document.querySelector('.subinfo span').innerText = questionVar.xp + 'xp'
     document.querySelectorAll('.option span').forEach(el => {
         for (let element of questionVar.answers){

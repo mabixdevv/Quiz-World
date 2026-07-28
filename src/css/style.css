@@ -1,8 +1,14 @@
-body{
+*{
     margin: 0;
     padding: 0;
-    background-color: #F8F9FA;
 }
+
+body{
+    font-family: 'Baloo 2', sans-serif;
+    min-height: 100vh;
+    background-image: linear-gradient(135deg, #e0f7fa, #80deea, #4dd0e1);
+}
+
 
 .container {
     max-width: 1200px;
@@ -14,8 +20,11 @@ body{
     margin: auto;
 
     width: 50%;
-    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
-    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 60px  rgba(0, 150, 180, 0.15), 0 8px 24px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
 
     display: flex;
     align-items: center;
@@ -58,14 +67,20 @@ body{
 }
 
 .option{
-    background: linear-gradient(0deg,rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
-    border-radius: 10px;
+    padding: 10px;
+
+    background-color: rgb(217 215 253 / 35%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+
 
     transition: 0.4s ease-out;
 }
 
 .option:hover{
-    filter: brightness(1.2);
+    transform: scale(1.02);
 }
 
 .option span{
