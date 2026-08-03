@@ -294,10 +294,14 @@ function FinishGame(Bt){
 
     if (difficulty == 'easy'){
         localStorage.setItem('Money', 10)
-    }else if(difficulty == 'meduim'){
+        localStorage.setItem('EasyBadge', 'B2')
+    }else if(difficulty == 'medium'){
         localStorage.setItem('Money', 30)
+        localStorage.setItem('MediumBadge', 'B3')
     }else if(difficulty == 'hard'){
-        localStorage.setItem('Money', 50)}
+        localStorage.setItem('Money', 50)
+        localStorage.setItem('HardBadge', 'B4')
+    }
 }
 
 function ButtonClick(Button){
@@ -458,9 +462,22 @@ function OnClick(span){
     }
 }
 
+function OnStart(){
+    console.log('here')
+    let badgeList = [localStorage.getItem('EasyBadge'), localStorage.getItem('MediumBadge'),
+        localStorage.getItem('HardBadge') ]
+
+    for (let badge of badgeList){
+        if (badge != 'null' && badge != null){
+            localStorage.setItem('AllBadges', 'B5')
+        }
+    }
+}
+
 document.querySelectorAll('.option span').forEach(el => {
     el.addEventListener("click", () => OnClick(el))
 })
 
 Generate(false)
 UpdateQuestionlog()
+OnStart()

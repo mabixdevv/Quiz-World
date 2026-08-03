@@ -180,5 +180,18 @@ function UpdateXp(){
     levelTxt.innerText = 'Level: ' + level
 }
 
+function OnStart(){
+    console.log('here')
+    let badgeList = [localStorage.getItem('EasyBadge'), localStorage.getItem('MediumBadge'),
+        localStorage.getItem('HardBadge') ]
+
+    for (let badge of badgeList){
+        if (badge != 'null' && badge != null){
+            localStorage.setItem('AllBadges', 'B5')
+        }
+    }
+}
+
 UpdateXp()
 UpdateMoney()
+OnStart()

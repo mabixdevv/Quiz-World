@@ -157,7 +157,7 @@ body{
 
 .xpbar{
     position: relative;
-    background-color:darkgray;
+    background-color:rgba(177, 177, 177, 0.55);
     width: 210px;
     height: 30px;
     border-radius: 10px;
@@ -175,7 +175,7 @@ body{
 .bar{
     width: 0%;
     height: 100%;
-    background: green;
+    background: rgba(57, 194, 3, 0.641);
     border-radius: 10px;
 }
 
