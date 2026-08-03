@@ -462,17 +462,6 @@ function OnClick(span){
     }
 }
 
-function OnStart(){
-    console.log('here')
-    let badgeList = [localStorage.getItem('EasyBadge'), localStorage.getItem('MediumBadge'),
-        localStorage.getItem('HardBadge') ]
-
-    for (let badge of badgeList){
-        if (badge != 'null' && badge != null){
-            localStorage.setItem('AllBadges', 'B5')
-        }
-    }
-}
 
 document.querySelectorAll('.option span').forEach(el => {
     el.addEventListener("click", () => OnClick(el))
@@ -480,4 +469,3 @@ document.querySelectorAll('.option span').forEach(el => {
 
 Generate(false)
 UpdateQuestionlog()
-OnStart()
