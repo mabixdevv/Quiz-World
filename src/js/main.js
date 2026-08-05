@@ -1,5 +1,6 @@
 let bt = document.querySelector('.content button')
 let Achvbt = document.getElementById('achievement')
+let Shopbt = document.getElementById('shop') 
 
 let bar = document.querySelector('.xpbar')
 let FillBar = document.querySelector('.bar')
@@ -107,6 +108,7 @@ if (localStorage.getItem('pfp') && labelImg){
 
 bt.addEventListener('click', () => OnClick('selectquiz'))
 Achvbt.addEventListener('click', () => OnClick('achievements'))
+Shopbt.addEventListener('click', () => OnClick('shop'))
 input.addEventListener('change', () => ProfilePictureUpdate())
 NameEdit.addEventListener('click', () => NameChange())
 
@@ -157,6 +159,8 @@ function OnClick(location){
             window.location.href = '../html/choosequiz.html'
         }else if(location == 'achievements'){
             window.location.href = '../html/achievements.html'
+        }else if(location == 'shop'){
+            window.location.href = '../html/shop.html' 
         }
     }else{
         console.log('no location!')
