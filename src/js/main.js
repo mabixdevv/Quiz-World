@@ -27,11 +27,23 @@ let badges = JSON.parse(localStorage.getItem('Badges'))
 let badgeList = JSON.parse(localStorage.getItem('BadgesList')) || [null, null, null] 
 let Unequip = JSON.parse(localStorage.getItem('Unequip')) || null
 
+let tag = JSON.parse(localStorage.getItem('Tag'))
 
 // [localStorage.getItem('Badges')] ||
 // localStorage.setItem('Badges', [null, null, null])
 // console.log(Unequip)
 console.log(badges)
+console.log(tag)
+
+
+if(tag != null && tag != 'null'){
+    let spanTag = document.getElementById('Tag')
+    spanTag.style.display = 'block'
+    spanTag.innerText = tag[0]
+    if(tag[1]){
+        spanTag.style.color = tag[1]
+    }
+}
 
 if (Unequip != null && Unequip != 'null'){
     Unequip.forEach(el => {

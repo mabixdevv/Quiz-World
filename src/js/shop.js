@@ -19,64 +19,64 @@ const price = [
         name: 'Chill',
         cost: 20,
         state: 'Locked'
+    },
+    {
+        name: 'Night Owl',
+        cost: 50,
+        state: 'Locked',
+        color: '#23395D'
+    },
+    {
+        name: 'Pirate',
+        cost: 50,
+        state: 'Locked',
+        color: '#8B1E2D'
+    },
+    {
+        name: 'Mastermind',
+        cost: 50,
+        state: 'Locked',
+        color: '#7C3AED'
     }
 ]
 
 
-function OnClickState(bt){
-    let nameBt = bt.parentElement.querySelector('span')
-    let state = null
-
-    price.forEach(el => {
-        if (el.state != 'Locked'){
-            if (el.name == nameBt){
-                state = el.state
-                console.log(state)
-            }else{
-                console.log('noname')
-                return
-            }
-        }
-    })
-
-    if (state == 'Equip'){
-        state = 'Unequip'
-        bt.innerText = 'Unequip'
-        localStorage.setItem('Tag', nameBt)
-    }else if(state == 'Unequip'){
-        state = 'Equip'
-        bt.innerText = 'Equip'
-        localStorage.setItem('Tag', nameBt)
-    }
-}
-
-
 function OnClickBuy(bt){
     let name = bt.parentElement.querySelector('span')
-    let cost = null
-    let element = null
-
-    price.forEach(el => {
-        if (el.state == 'Locked'){
-            if (el.name == name.innerText){
-                element = el
-                console.log(el)
-                cost = el.cost
-            }else{
-                console.log('no cost')
-            }
+    let tag = null
+    
+    for(let el of price){
+        if (el.name == name.innerText){
+            tag = price[price.indexOf(el)]
+            // console.log(tag)
+            break
         }
-    })
-
-    if (money >= cost){
-        // console.log(element.state)
-        money -= cost
-        element.state = 'Equip'
-        bt.innerText = 'Equip'
-        bt.removeEventListener('click', () => OnClickBuy(el));
-        Update()
-        EventUpd()
     }
+
+    let cost = tag.cost
+    let state = tag.state
+
+    if(state == 'Locked'){
+        if (money >= cost){
+            money -= cost
+            tag.state = 'Equip'
+            bt.innerText = 'Equip'
+            Update()
+            // console.log(bt.innerText)
+            // console.log(name.innerText)
+            // console.log(state)
+        }
+    }else if(state == 'Equip'){
+        // console.log('herere')
+        tag.state = 'Unequip'
+        bt.innerText = 'Unequip'
+        localStorage.setItem('Tag', JSON.stringify([tag.name, tag.color]))
+    }else if (state== 'Unequip'){
+        tag.state = 'Equip'
+        bt.innerText = 'Equip'
+        localStorage.setItem('UnTag', tag.name)
+    }
+
 }
 
 
@@ -98,5 +98,5 @@ BuyBts.forEach(el => {
 })
 
 
-EventUpd()
+
 Update()
